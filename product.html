@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CCTV Product Details | Professional Surveillance</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f3f6fa;color:#182230;line-height:1.6}
+header{background:#101b2d;color:white;padding:20px 7%;font-weight:bold}
+main{max-width:950px;margin:35px auto;padding:20px}
+.card{background:white;padding:28px;border-radius:14px;box-shadow:0 5px 22px #0000000c}
+.product-icon{font-size:100px;text-align:center;background:#eaf0f6;border-radius:12px;padding:30px}
+h1{line-height:1.25}
+.tag{display:inline-block;background:#e0f5e9;color:#146c43;padding:5px 10px;border-radius:20px;font-size:13px}
+li{margin:8px 0}
+.btn{display:inline-block;text-decoration:none;background:#148456;color:white;padding:13px 18px;border-radius:7px;font-weight:bold;margin:8px 8px 0 0}
+.btn.secondary{background:#e8edf3;color:#182230}
+footer{text-align:center;padding:25px;color:#667085}
+</style>
+</head>
+<body>
+<header>🛡 PROFESSIONAL SURVEILLANCE</header>
+
+<main>
+  <div class="card">
+    <a href="index.html#products">← Back to Products</a>
+
+    <div class="product-icon" id="productIcon">📹</div>
+
+    <p><span class="tag">CCTV SECURITY SOLUTION</span></p>
+    <h1 id="productName">CCTV Product</h1>
+    <p id="productDescription"></p>
+
+    <h3>Key Features</h3>
+    <ul id="productFeatures"></ul>
+
+    <h3>Need Price or Installation?</h3>
+    <p>Contact us for current pricing, availability and a quotation based on your requirements.</p>
+
+    <a class="btn" id="quoteButton" href="#">Get Price on WhatsApp</a>
+    <a class="btn secondary" href="index.html#products">View Other Products</a>
+  </div>
+</main>
+
+<footer>Professional Surveillance | CCTV Sales & Installation</footer>
+
+<script>
+const products = {
+  bullet: {
+    icon: "📹",
+    name: "Bullet CCTV Camera",
+    description: "A camera option commonly used for outdoor areas, entrances and parking spaces.",
+    features: [
+      "Suitable models available for indoor or outdoor use",
+      "Choose resolution according to your requirements",
+      "Night vision available on selected models",
+      "Wired and network options depend on the model"
+    ]
+  },
+  dome: {
+    icon: "🎥",
+    name: "Dome CCTV Camera",
+    description: "A compact camera style often used in shops, offices and indoor spaces.",
+    features: [
+      "Compact dome-style design",
+      "Suitable models for indoor or outdoor installation",
+      "Different resolutions available by model",
+      "Night vision available on selected models"
+    ]
+  },
+  ip: {
+    icon: "🌐",
+    name: "IP CCTV Camera",
+    description: "A network camera that sends video over a compatible network connection.",
+    features: [
+      "Network-based video monitoring",
+      "High-resolution models available",
+      "Remote viewing with compatible configuration",
+      "PoE support available on selected models"
+    ]
+  },
+  dvr: {
+    icon: "💾",
+    name: "DVR / NVR Recorder",
+    description: "Recording equipment for compatible CCTV cameras and surveillance systems.",
+    features: [
+      "Different channel capacities available",
+      "Storage capacity depends on the selected hard drive",
+      "DVR and NVR support different camera systems",
+      "Remote access depends on device compatibility and setup"
+    ]
+  }
+};
+
+const item = new URLSearchParams(window.location.search).get("item");
+const product = products[item];
+
+if (product) {
+  document.title = product.name + " | Professional Surveillance";
+  document.getElementById("productIcon").textContent = product.icon;
+  document.getElementById("productName").textContent = product.name;
+  document.getElementById("productDescription").textContent = product.description;
+
+  const list = document.getElementById("productFeatures");
+  product.features.forEach(feature => {
+    const li = document.createElement("li");
+    li.textContent = feature;
+    list.appendChild(li);
+  });
+
+  const message = "Hello, I need price and details for " + product.name + ".";
+  document.getElementById("quoteButton").href =
+    "https://wa.me/91YOURNUMBER?text=" + encodeURIComponent(message);
+} else {
+  document.getElementById("productName").textContent = "Product Not Found";
+  document.getElementById("productDescription").textContent =
+    "Please return to the products page and select a product.";
+  document.getElementById("productFeatures").remove();
+  document.getElementById("quoteButton").style.display = "none";
+}
+</script>
+</body>
+</html>
