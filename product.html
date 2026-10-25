@@ -11,9 +11,11 @@ body{margin:0;font-family:Arial,sans-serif;background:#f3f6fa;color:#182230;line
 header{background:#101b2d;color:white;padding:20px 7%;font-weight:bold}
 main{max-width:950px;margin:35px auto;padding:20px}
 .card{background:white;padding:28px;border-radius:14px;box-shadow:0 5px 22px #0000000c}
-.product-icon{font-size:100px;text-align:center;background:#eaf0f6;border-radius:12px;padding:30px}
+.product-photo{width:100%;max-width:440px;height:300px;object-fit:contain;display:block;margin:20px auto;background:#f7f9fc;border-radius:12px}
+.product-icon{font-size:90px;text-align:center;background:#eaf0f6;border-radius:12px;padding:30px}
 h1{line-height:1.25}
 .tag{display:inline-block;background:#e0f5e9;color:#146c43;padding:5px 10px;border-radius:20px;font-size:13px}
+.price{font-size:23px;font-weight:bold;color:#087b50}
 li{margin:8px 0}
 .btn{display:inline-block;text-decoration:none;background:#148456;color:white;padding:13px 18px;border-radius:7px;font-weight:bold;margin:8px 8px 0 0}
 .btn.secondary{background:#e8edf3;color:#182230}
@@ -27,17 +29,24 @@ footer{text-align:center;padding:25px;color:#667085}
   <div class="card">
     <a href="index.html#products">← Back to Products</a>
 
-    <div class="product-icon" id="productIcon">📹</div>
+    <div id="imageArea">
+      <div class="product-icon" id="productIcon">📹</div>
+    </div>
 
     <p><span class="tag">CCTV SECURITY SOLUTION</span></p>
     <h1 id="productName">CCTV Product</h1>
+
+    <p><b>Brand:</b> <span id="productBrand"></span></p>
+    <p><b>Model:</b> <span id="productModel"></span></p>
+    <p class="price" id="productPrice"></p>
+
     <p id="productDescription"></p>
 
     <h3>Key Features</h3>
     <ul id="productFeatures"></ul>
 
     <h3>Need Price or Installation?</h3>
-    <p>Contact us for current pricing, availability and a quotation based on your requirements.</p>
+    <p>Contact us for current pricing, availability and an installation quotation.</p>
 
     <a class="btn" id="quoteButton" href="#">Get Price on WhatsApp</a>
     <a class="btn secondary" href="index.html#products">View Other Products</a>
@@ -51,28 +60,40 @@ const products = {
   bullet: {
     icon: "📹",
     name: "Bullet CCTV Camera",
+    brand: "Hikvision",
+    model: "Enter your actual model number",
+    price: "Contact for Price",
+    image: "images/bullet.jpg",
     description: "A camera option commonly used for outdoor areas, entrances and parking spaces.",
     features: [
-      "Suitable models available for indoor or outdoor use",
-      "Choose resolution according to your requirements",
+      "Resolution depends on the selected model",
       "Night vision available on selected models",
+      "Check weather protection before outdoor installation",
       "Wired and network options depend on the model"
     ]
   },
   dome: {
     icon: "🎥",
     name: "Dome CCTV Camera",
+    brand: "Hikvision",
+    model: "Enter your actual model number",
+    price: "Contact for Price",
+    image: "images/dome.jpg",
     description: "A compact camera style often used in shops, offices and indoor spaces.",
     features: [
       "Compact dome-style design",
-      "Suitable models for indoor or outdoor installation",
       "Different resolutions available by model",
-      "Night vision available on selected models"
+      "Night vision available on selected models",
+      "Indoor or outdoor use depends on model rating"
     ]
   },
   ip: {
     icon: "🌐",
     name: "IP CCTV Camera",
+    brand: "Hikvision",
+    model: "Enter your actual model number",
+    price: "Contact for Price",
+    image: "images/ip.jpg",
     description: "A network camera that sends video over a compatible network connection.",
     features: [
       "Network-based video monitoring",
@@ -84,6 +105,10 @@ const products = {
   dvr: {
     icon: "💾",
     name: "DVR / NVR Recorder",
+    brand: "CP PLUS",
+    model: "Enter your actual model number",
+    price: "Contact for Price",
+    image: "images/dvr.jpg",
     description: "Recording equipment for compatible CCTV cameras and surveillance systems.",
     features: [
       "Different channel capacities available",
@@ -99,18 +124,36 @@ const product = products[item];
 
 if (product) {
   document.title = product.name + " | Professional Surveillance";
+
   document.getElementById("productIcon").textContent = product.icon;
   document.getElementById("productName").textContent = product.name;
+  document.getElementById("productBrand").textContent = product.brand;
+  document.getElementById("productModel").textContent = product.model;
+  document.getElementById("productPrice").textContent = product.price;
   document.getElementById("productDescription").textContent = product.description;
 
+  const image = document.createElement("img");
+  image.className = "product-photo";
+  image.src = product.image;
+  image.alt = product.brand + " " + product.name;
+  image.onerror = function() {
+    image.style.display = "none";
+  };
+  image.onload = function() {
+    document.getElementById("productIcon").style.display = "none";
+  };
+  document.getElementById("imageArea").prepend(image);
+
   const list = document.getElementById("productFeatures");
-  product.features.forEach(feature => {
+  product.features.forEach(function(feature) {
     const li = document.createElement("li");
     li.textContent = feature;
     list.appendChild(li);
   });
 
-  const message = "Hello, I need price and details for " + product.name + ".";
+  const message = "Hello, I need price and details for " +
+    product.name + ", Brand: " + product.brand +
+    ", Model: " + product.model + ".";
   document.getElementById("quoteButton").href =
     "https://wa.me/91YOURNUMBER?text=" + encodeURIComponent(message);
 } else {
@@ -118,6 +161,9 @@ if (product) {
   document.getElementById("productDescription").textContent =
     "Please return to the products page and select a product.";
   document.getElementById("productFeatures").remove();
+  document.getElementById("productBrand").parentElement.style.display = "none";
+  document.getElementById("productModel").parentElement.style.display = "none";
+  document.getElementById("productPrice").style.display = "none";
   document.getElementById("quoteButton").style.display = "none";
 }
 </script>
