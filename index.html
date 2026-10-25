@@ -55,11 +55,182 @@ footer{text-align:center;background:#101b2d;color:white;padding:24px}
   <h2>Our Products</h2>
   <p class="sub">Security equipment for your needs.</p>
   <div class="grid">
-    <div class="card"><div class="symbol">📹</div><h3>Bullet Cameras</h3><p>Security cameras for entrances, outdoor areas and parking spaces.</p></div>
-    <div class="card"><div class="symbol">🎥</div><h3>Dome Cameras</h3><p>Suitable camera options for shops, offices and indoor spaces.</p></div>
-    <div class="card"><div class="symbol">🌐</div><h3>IP Cameras</h3><p>Network-based surveillance solutions for compatible systems.</p></div>
-    <div class="card"><div class="symbol">💾</div><h3>DVR, NVR & Accessories</h3><p>Recording systems, storage, cables, power supplies and accessories.</p></div>
-  </div>
+    
+<div class="grid">
+  <a class="product-link" href="product.html?item=bullet">
+    <div class="card">
+      <div class="symbol">📹</div>
+      <h3>Bullet CCTV Camera</h3>
+      <p>Outdoor security camera solutions.</p>
+      <strong>View Details →</strong>
+    </div>
+  </a>
+
+  <a class="product-link" href="product.html?item=dome">
+    <div class="card">
+      <div class="symbol">🎥</div>
+      <h3>Dome CCTV Camera</h3>
+      <p>Security solutions for indoor areas.</p>
+      <strong>View Details →</strong>
+    </div>
+  </a>
+
+  <a class="product-link" href="product.html?item=ip">
+    <div class="card">
+      <div class="symbol">🌐</div>
+      <h3>IP CCTV Camera</h3>
+      <p>Network-based surveillance systems.</p>
+      <strong>View Details →</strong>
+    </div>
+  </a>
+
+  <a class="product-link" href="product.html?item=dvr">
+    <div class="card">
+      <div class="symbol">💾</div>
+      <h3>DVR / NVR Systems</h3>
+      <p>Recording devices and accessories.</p>
+      <strong>View Details →</strong>
+    </div>
+  </a>
+</div>
+
+    
+.product-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+.product-link .card {
+  height: 100%;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.product-link:hover .card {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px #101b2d20;
+}
+.product-link strong {
+  color: #087b50;
+}
+
+    
+.product-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+.product-link .card {
+  height: 100%;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.product-link:hover .card {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px #101b2d20;
+}
+.product-link strong {
+  color: #087b50;
+}
+
+    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CCTV Product Details | Professional Surveillance</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f3f6fa;color:#172538;line-height:1.6}
+header{background:#101b2d;color:white;padding:20px 7%;font-weight:bold}
+main{max-width:950px;margin:35px auto;padding:20px}
+.card{background:white;border-radius:14px;padding:28px;box-shadow:0 5px 24px #0000000d}
+.icon{font-size:75px}
+h1{line-height:1.2}
+.btn{display:inline-block;background:#087b50;color:white;text-decoration:none;padding:12px 20px;border-radius:7px;margin:8px 8px 0 0}
+.back{color:#087b50;text-decoration:none}
+.note{color:#667085;font-size:14px}
+@media(min-width:650px){.layout{display:grid;grid-template-columns:1fr 1.3fr;gap:28px;align-items:center}}
+</style>
+</head>
+<body>
+<header>🛡 PROFESSIONAL SURVEILLANCE</header>
+<main>
+<a class="back" href="index.html#products">← Back to Products</a>
+<div class="card" style="margin-top:20px">
+<div class="layout">
+<div class="icon" id="icon">📹</div>
+<div>
+<p>OUR CCTV PRODUCTS</p>
+<h1 id="name">CCTV Product</h1>
+<p id="description">Product details</p>
+<h3>Features</h3>
+<ul id="features"></ul>
+<h2>Price: Get a Quote</h2>
+<p class="note">Final price depends on model, specifications and installation requirements.</p>
+<a class="btn" id="whatsapp" href="https://wa.me/" target="_blank" rel="noopener">Enquire on WhatsApp</a>
+<a class="btn" href="index.html#contact">Contact Us</a>
+</div>
+</div>
+</div>
+</main>
+<script>
+const products = {
+  bullet: {
+    icon: "📹",
+    name: "Bullet CCTV Camera",
+    description: "Outdoor surveillance solutions for homes, shops, offices and parking areas.",
+    features: ["Outdoor camera options", "Night vision options", "Weather-resistant models available"]
+  },
+  dome: {
+    icon: "🎥",
+    name: "Dome CCTV Camera",
+    description: "A compact camera style suitable for many indoor and covered spaces.",
+    features: ["Indoor surveillance options", "Ceiling-mounted design", "Multiple models available"]
+  },
+  ip: {
+    icon: "🌐",
+    name: "IP CCTV Camera",
+    description: "Network-based cameras for compatible modern surveillance systems.",
+    features: ["Network connectivity", "Remote viewing on supported models", "Different resolutions available"]
+  },
+  dvr: {
+    icon: "💾",
+    name: "DVR / NVR Systems",
+    description: "Recording equipment for compatible analogue and network camera systems.",
+    features: ["Video recording", "Storage options", "Multiple channel configurations"]
+  }
+};
+
+const key = new URLSearchParams(window.location.search).get("item");
+const product = products[key];
+
+if (product) {
+  document.title = product.name + " | Professional Surveillance";
+  document.getElementById("icon").textContent = product.icon;
+  document.getElementById("name").textContent = product.name;
+  document.getElementById("description").textContent = product.description;
+
+  const list = document.getElementById("features");
+  product.features.forEach(feature => {
+    const li = document.createElement("li");
+    li.textContent = feature;
+    list.appendChild(li);
+  });
+
+  const message = "Hello, I need a quotation for " + product.name;
+  document.getElementById("whatsapp").href =
+    "https://wa.me/91YOURNUMBER?text=" + encodeURIComponent(message);
+} else {
+  document.getElementById("name").textContent = "Product Not Found";
+  document.getElementById("description").textContent =
+    "Please return to our products page and select a product.";
+  document.getElementById("icon").textContent = "🔎";
+  document.getElementById("features").remove();
+  document.getElementById("whatsapp").style.display = "none";
+}
+</script>
+</body>
+</html>
+
 </section>
 
 <section class="dark" id="services">
