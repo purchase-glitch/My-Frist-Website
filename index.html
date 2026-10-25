@@ -2,40 +2,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My First Website</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 60px 20px;
-      background: #f0f4f8;
-      color: #222;
-    }
-    .card {
-      background: white;
-      max-width: 500px;
-      margin: auto;
-      padding: 35px;
-      border-radius: 16px;
-    }
-    a {
-      display: inline-block;
-      background: #166534;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Professional Surveillance | CCTV Solutions</title>
+<meta name="description" content="CCTV camera sales, installation, repair and surveillance solutions for homes, shops and offices.">
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;color:#182230;background:#f5f7fa;line-height:1.6}
+header{background:#101b2d;color:white;padding:18px 7%;display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
+.brand{font-size:21px;font-weight:bold}
+nav a{color:white;text-decoration:none;margin:0 8px;font-size:14px}
+.hero{padding:85px 8%;background:linear-gradient(120deg,#101b2d,#174b70);color:white}
+.hero h1{font-size:clamp(32px,5vw,52px);line-height:1.15;max-width:700px}
+.hero p{font-size:18px;max-width:600px;color:#e0eaf4}
+.btn{display:inline-block;background:#16a36a;color:white;padding:13px 20px;border-radius:7px;text-decoration:none;font-weight:bold;margin:8px 8px 0 0}
+.btn.alt{background:white;color:#14253a}
+section{padding:55px 8%}
+h2{text-align:center;font-size:30px;margin-bottom:12px}
+.sub{text-align:center;color:#667085;margin:0 auto 30px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.card{background:white;border-radius:12px;padding:24px;box-shadow:0 4px 18px #101b2d0d}
+.card h3{margin-top:0}
+.symbol{font-size:35px}
+.dark{background:#e8eef5}
+.cta{text-align:center;background:#12263d;color:white}
+.cta p{color:#e0eaf4}
+footer{text-align:center;background:#101b2d;color:white;padding:24px}
+.small{font-size:13px;color:#667085}
+</style>
 </head>
 <body>
-  <div class="card">
-    <h1>Welcome to My Website!</h1>
-    <p>Bhai, meri pehli website mein aapka swagat hai.</p>
-    <p>Yeh website GitHub Pages par bani hai.</p>
-    <a href="https://github.com">Visit GitHub</a>
+
+<header>
+  <div class="brand">🛡 PROFESSIONAL SURVEILLANCE</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#products">Products</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<div class="hero" id="home">
+  <p>YOUR SECURITY. OUR PRIORITY.</p>
+  <h1>Smart CCTV & Security Solutions</h1>
+  <p>CCTV camera sales, professional installation and surveillance solutions for homes, shops, offices and businesses.</p>
+  <a class="btn" href="#contact">Get a Free Quote</a>
+  <a class="btn alt" href="#services">Our Services</a>
+</div>
+
+<section id="products">
+  <h2>Our Products</h2>
+  <p class="sub">Security equipment for your needs.</p>
+  <div class="grid">
+    <div class="card"><div class="symbol">📹</div><h3>Bullet Cameras</h3><p>Security cameras for entrances, outdoor areas and parking spaces.</p></div>
+    <div class="card"><div class="symbol">🎥</div><h3>Dome Cameras</h3><p>Suitable camera options for shops, offices and indoor spaces.</p></div>
+    <div class="card"><div class="symbol">🌐</div><h3>IP Cameras</h3><p>Network-based surveillance solutions for compatible systems.</p></div>
+    <div class="card"><div class="symbol">💾</div><h3>DVR, NVR & Accessories</h3><p>Recording systems, storage, cables, power supplies and accessories.</p></div>
   </div>
+</section>
+
+<section class="dark" id="services">
+  <h2>Our Services</h2>
+  <p class="sub">End-to-end support for your CCTV system.</p>
+  <div class="grid">
+    <div class="card"><h3>🔧 CCTV Installation</h3><p>Camera mounting, cabling, setup and system configuration.</p></div>
+    <div class="card"><h3>📱 Mobile Viewing Setup</h3><p>Remote viewing setup on your phone for supported camera systems.</p></div>
+    <div class="card"><h3>🛠 Repair & Maintenance</h3><p>Troubleshooting, maintenance and support for CCTV systems.</p></div>
+    <div class="card"><h3>🏢 Site Security Solutions</h3><p>Solutions planned for homes, shops, offices and warehouses.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Why Choose Us?</h2>
+  <div class="grid">
+    <div class="card"><h3>✔ Professional Service</h3><p>Installation planned according to your site requirements.</p></div>
+    <div class="card"><h3>✔ Suitable Products</h3><p>Options based on your coverage, recording and budget needs.</p></div>
+    <div class="card"><h3>✔ Customer Support</h3><p>Assistance with setup and service enquiries.</p></div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <h2>Secure Your Property Today</h2>
+  <p>Contact us for CCTV camera prices, installation and a customised quotation.</p>
+  <!-- Replace 91YOURNUMBER with your WhatsApp number including country code -->
+  <a class="btn" href="https://wa.me/91YOURNUMBER?text=Hello%2C%20I%20need%20a%20CCTV%20quotation." target="_blank" rel="noopener">Chat on WhatsApp</a>
+  <p class="small">WhatsApp: Update this button with your business number.</p>
+</section>
+
+<footer>
+  <strong>PROFESSIONAL SURVEILLANCE</strong>
+  <p>CCTV Sales | Installation | Maintenance</p>
+  <p>Serving homes and businesses with security solutions.</p>
+  <p>© 2026 Professional Surveillance</p>
+</footer>
+
 </body>
 </html>
